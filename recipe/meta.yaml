@@ -6,28 +6,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tstrait-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tstrait-{{ version }}.tar.gz
   sha256: 60e6b88cfc913625f3f7f06a368768e192532225ae30f3d51bd5658f9df48f78
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - setuptools-scm
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy >=1.20.3
     - numba >=0.57.0
     - pandas >=1.0
     - tskit >=0.5.5
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - tstrait
 
