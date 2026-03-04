@@ -1,5 +1,6 @@
 {% set name = "tstrait" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tstrait-{{ version }}.tar.gz
-  sha256: 6c7e4b0f8139a9090d2132d37f5225d4edf6c8027bc38e16a4a78db8fea0ae78
+  sha256: 60d9ebfcf44648f9b5a1e39c62ea158e8ce69af9c932329529310f6cd9f2c2d6
 
 build:
   noarch: python
